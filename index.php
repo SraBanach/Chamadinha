@@ -47,13 +47,14 @@ $resultado = $banco->query($select)->fetchAll();
         <!-- 
     //foreach = para laço(de procura) de repetição automatico em array; 
     as - para atribuir; só usa a seta dentro do foreach-->
-        <?php foreach ($resultado as $lista) { ?>
+        <?php foreach ($resultado as $linha) { ?>
             <tr>
-                <td> <?php echo $lista['id'] ?> </td>
+                <td> <?php echo $linha['id'] ?> </td>
                 <!--  -->
-                <td> <?= $lista['nomeCompleto'] ?> </td>
+                <td> <?= $linha['nomeCompleto'] ?> </td>
                 <td class="text-center"> 
-                <a class="btn btn-primary" href="#" role="button">Abrir</a>
+                <!-- como colocar um link diferente para cada aluno depois da interrogacao passamos os parametros. -->
+                <a class="btn btn-primary" href="./ficha.php?id_aluno=<?= $linha['id'] ?>" role="button">Abrir</a>
                 <a class="btn btn-warning" href="#" role="button">Editar</a>
                 <a class="btn btn-danger" href="#" role="button">Excluir</a>
                 </td>
