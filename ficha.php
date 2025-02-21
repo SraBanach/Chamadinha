@@ -5,7 +5,7 @@ $id_aluno = $_GET['id_aluno'];
 //Parametros de conexao, pego esses valores da documentacao;
 //127.0.0.1 = local 
 ////as vezes precisa de parametro para funcionar a extensao php debug mostra o que falta se passar mouse em cima; 
-$dsn = 'mysql:dbname=bd_chamadinha;host=127.0.0.1';
+$dsn = 'mysql:dbname=chamadinha;host=127.0.0.1';
 $user = 'root';
 $password = '';
 
@@ -17,7 +17,9 @@ $banco = new PDO($dsn, $user, $password);
 
 //variavel sempre tem $ 
 //variavel select, o que eu quero que liste a tabela de informação;  
-$select = 'SELECT * FROM tb_info_alunos WHERE id_alunos=' .$id_aluno ;
+
+
+$select = 'SELECT tb_info_alunos.*, tb_alunos.nome FROM tb_info_alunos INNER JOIN tb_alunos ON tb_alunos.id = tb_info_alunos.id_alunos WHERE tb_info_alunos.id_alunos =' .$id_aluno ;
 
 //variavel banco -> consulta a variavel select -> e agora vc vai me retorno;
 //e toda  vez que consulta ele vai guardar dentro da minha variavel dados;
@@ -55,10 +57,10 @@ $dados= $banco->query($select)->fetch();
     }
 </style>
 <main class="container text-center my-5">
-    <img src="./img/foto perfil 1.webp" alt="imagem de perfil" class="img-thumbnail">
+    <img src="./img/<?= $dados['img'] ?>" alt="imagem de perfil" class="img-thumbnail">
     <form action="#">
         <label for="nome">Nome</label>
-        <input type="text" value= "Kenya Banach" disabled class="form-control">
+        <input type="text" value= "<?= $dados['nome'] ?>" disabled class="form-control">
         <div class="row mt-2">
             <div class="col">
                 <label for="telefone">Telefone</label>

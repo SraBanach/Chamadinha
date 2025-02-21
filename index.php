@@ -4,7 +4,7 @@
 
 //Parametros
 ////as vezes precisa de parametro para funcionar a extensao php debug mostra o que falta se passar mouse em cima; 
-$dsn = 'mysql:dbname=bd_chamadinha;host=127.0.0.1';
+$dsn = 'mysql:dbname=chamadinha;host=127.0.0.1';
 $user = 'root';
 $password = '';
 
@@ -51,7 +51,7 @@ $resultado = $banco->query($select)->fetchAll();
             <tr>
                 <td> <?php echo $linha['id'] ?> </td>
                 <!--  -->
-                <td> <?= $linha['nomeCompleto'] ?> </td>
+                <td> <?= $linha['nome'] ?> </td>
                 <td class="text-center"> 
                 <!-- como colocar um link diferente para cada aluno depois da interrogacao passamos os parametros. -->
                 <a class="btn btn-primary" href="./ficha.php?id_aluno=<?= $linha['id'] ?>" role="button">Abrir</a>
