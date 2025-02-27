@@ -4,7 +4,7 @@
 
 //Parametros
 ////as vezes precisa de parametro para funcionar a extensao php debug mostra o que falta se passar mouse em cima; 
-$dsn = 'mysql:dbname=chamadinha;host=127.0.0.1';
+$dsn = 'mysql:dbname=db_chamadinha;host=127.0.0.1';
 $user = 'root';
 $password = '';
 
@@ -33,6 +33,9 @@ $resultado = $banco->query($select)->fetchAll();
 <!-- my-5 para dar um espaço margin -->
 <main class="container my-5"> 
     <table class="table table-striped">
+        <div class="my-3 d-flex justify-content-end">
+            <a href="formulario.php" class="btn btn-sucess"> Cadastrar Novo Aluno </a>
+        </div>
         <tr>
             <td>
                 id
@@ -54,9 +57,11 @@ $resultado = $banco->query($select)->fetchAll();
                 <td> <?= $linha['nome'] ?> </td>
                 <td class="text-center"> 
                 <!-- como colocar um link diferente para cada aluno depois da interrogacao passamos os parametros. -->
+                <!-- metodo get colocar url do arquivo depois coloco a interrogacao para separar... 
+                lado esquerdo  arquivo, lado direiro variavel -->
                 <a class="btn btn-primary" href="./ficha.php?id_aluno=<?= $linha['id'] ?>" role="button">Abrir</a>
                 <a class="btn btn-warning" href="#" role="button">Editar</a>
-                <a class="btn btn-danger" href="#" role="button">Excluir</a>
+                <a class="btn btn-danger" href="./aluno-deletar.php?id=<?= $linha['id'] ?>" role="button">Excluir</a>
                 </td>
             </tr>
         <?php } ?>

@@ -5,7 +5,7 @@ $id_aluno = $_GET['id_aluno'];
 //Parametros de conexao, pego esses valores da documentacao;
 //127.0.0.1 = local 
 ////as vezes precisa de parametro para funcionar a extensao php debug mostra o que falta se passar mouse em cima; 
-$dsn = 'mysql:dbname=chamadinha;host=127.0.0.1';
+$dsn = 'mysql:dbname=db_chamadinha;host=127.0.0.1';
 $user = 'root';
 $password = '';
 
