@@ -49,5 +49,15 @@ $box->execute([
 ':id_alunos'=>$idFormulario
 ]);
 
+//modal para usar no agendamento, tela que abre estilo o alert
+
+// como criar alert e voltar para a tela de forma "automatica"
+echo '<script>
+    alert ("Usuario apagado com sucesso!!!!")
+    window.location.replace("index.php")
+    </script>';
+// aqui muda o endereçamento da pagina -> header('location:index.php');
+
+
 //var_dump para mostrar o que esta apagando, ultilizado somente pra controle;
 //var_dump($box);
