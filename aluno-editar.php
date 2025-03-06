@@ -33,7 +33,7 @@ echo '<h1> Editar Info Alunos</h1>';
 
 var_dump($_POST);
 
-$editarId = $_POST ['id'];
+$editarId = $_POST ['id_alunos'];
 $editarTelefone = $_POST ['telefone'];
 $editarEmail = $_POST ['email'];
 $editarNascimento = $_POST ['nascimento'];
@@ -45,11 +45,11 @@ $banco = new PDO($dsn, $user, $password);
 
 
 // criei para preparar depois:  mistura para um bolo, coloquei todos os ingredientes a mesa
-$update = 'UPDATE tb_info_alunos SET telefone = :telefone, email = :email, nascimento = :nascimento WHERE id = :id' ;
+$update = 'UPDATE tb_info_alunos SET telefone = :telefone, email = :email, nascimento = :nascimento WHERE id_alunos = :id_alunos' ;
  
 // o box vai guardar o banco preparado. deixo preparado para poder ultizar 
 $banco->prepare($update) -> execute([
-    ':id' => $editarId,
+    ':id_alunos' => $editarId,
     ':telefone' => $editarTelefone,
     ':email' => $editarEmail,
     ':nascimento' => $editarNascimento
