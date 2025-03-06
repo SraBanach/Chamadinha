@@ -60,7 +60,7 @@ $resultado = $banco->query($select)->fetchAll();
                 <!-- metodo get colocar url do arquivo depois coloco a interrogacao para separar... 
                 lado esquerdo  arquivo, lado direiro variavel -->
                 <a class="btn btn-primary" href="./ficha.php?id_aluno=<?= $linha['id'] ?>" role="button">Abrir</a>
-                <a class="btn btn-warning" href="#" role="button">Editar</a>
+                <a class="btn btn-warning" href="./formulario-editar.php?id_aluno_alterar=<?= $linha['id'] ?>" role="button">Editar</a>
                 <a class="btn btn-danger" href="./aluno-deletar.php?id=<?= $linha['id'] ?>" role="button">Excluir</a>
                 </td>
             </tr>
