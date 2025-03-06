@@ -33,7 +33,7 @@ echo '<h1> Editar Info Alunos</h1>';
 
 var_dump($_POST);
 
-$editarId = $_POST ['id_alunos'];
+$editarId = $_POST ['id'];
 $editarTelefone = $_POST ['telefone'];
 $editarEmail = $_POST ['email'];
 $editarNascimento = $_POST ['nascimento'];
