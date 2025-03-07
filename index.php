@@ -1,8 +1,13 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<!-- ter acesso ao Bootstrap, com todos os estilos prontos -->
 
 <?php
+//tag para inserir o codigo php
+
 
 //Parametros
+////as vezes precisa de parametro para funcionar a extensao php debug mostra o que falta se passar mouse em cima; 
+//Parametros de conexao, pego esses valores da documentacao;
+//127.0.0.1 = local 
 ////as vezes precisa de parametro para funcionar a extensao php debug mostra o que falta se passar mouse em cima; 
 $dsn = 'mysql:dbname=db_chamadinha;host=127.0.0.1';
 $user = 'root';
@@ -29,21 +34,35 @@ $resultado = $banco->query($select)->fetchAll();
 //comando echo apenas exibe o resultado de tudo; 
 //var_dump ele faz um debug da variavel, lembrar de colocar (), mostra tipo de elemento; mas aparece tudo sem organizar, tudo confuso; 
 //var_dump($resultado);
+// fechando a tag php 
 ?>
+
 <!-- my-5 para dar um espaço margin -->
+ <!-- Aplica uma margem vertical (superior e inferior)  -->
 <main class="container my-5"> 
+        
     <table class="table table-striped">
+        <!-- tabela estilizada pelo bootstrap -->
         <div class="my-3 d-flex justify-content-end">
+            <!-- my-3 espacamento superior e inferior
+            d-flex: A classe d-flex aplica o estilo de flexbox ao contêiner, permitindo alinhar seus itens de forma flexível.
+            justify-content-end: Alinha os itens dentro do contêiner para o final da linha (à direita no caso de layout horizontal). -->
+
             <a href="formulario.php" class="btn btn-sucess"> Cadastrar Novo Aluno </a>
+            <!-- link da pagina cadastrar aluno -->
         </div>
-        <tr>
+        <tr> 
+            <!-- cria linha do cabeçalho -->
             <td>
+                <!-- linha da tabela -->
                 id
             </td>
+                <!-- fechando a tag linha -->
             <td>
                 nome
             </td>
             <td class="text-center">
+                <!-- centralizando o conteudo dentro de cada cedula -->
                 Ações
             </td>
         </tr>
@@ -53,17 +72,20 @@ $resultado = $banco->query($select)->fetchAll();
         <?php foreach ($resultado as $linha) { ?>
             <tr>
                 <td> <?php echo $linha['id'] ?> </td>
-                <!--  -->
                 <td> <?= $linha['nome'] ?> </td>
                 <td class="text-center"> 
                 <!-- como colocar um link diferente para cada aluno depois da interrogacao passamos os parametros. -->
                 <!-- metodo get colocar url do arquivo depois coloco a interrogacao para separar... 
                 lado esquerdo  arquivo, lado direiro variavel -->
+
+                <!-- link estilizado como botao do bootstrap 
+                href="./ficha.php?id_aluno=<//?= $linha['id'] ?>": Define o destino do link, passando o ID do aluno dinamicamente via URL. -->
                 <a class="btn btn-primary" href="./ficha.php?id_aluno=<?= $linha['id'] ?>" role="button">Abrir</a>
                 <a class="btn btn-warning" href="./formulario-editar.php?id_aluno_alterar=<?= $linha['id'] ?>" role="button">Editar</a>
                 <a class="btn btn-danger" href="./aluno-deletar.php?id=<?= $linha['id'] ?>" role="button">Excluir</a>
                 </td>
             </tr>
         <?php } ?>
+        <!-- fim do foreach -->
     </table>
 </main>

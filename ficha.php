@@ -27,8 +27,9 @@ $dados= $banco->query($select)->fetch();
 
 
 
-
+//fechando a tag php 
 ?>
+
 
 
 

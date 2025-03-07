@@ -1,3 +1,4 @@
+<!-- ter acesso ao Bootstrap, com todos os estilos prontos -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <style>
     .formulario{
@@ -12,8 +13,11 @@
 
 
 <?php
+// tag php para inserir dados php; 
+
 $id_aluno_alterar = $_GET['id_aluno_alterar'];
 var_dump($id_aluno_alterar);
+//var_dump para exibir;
 
 //peguei essas informaçoes da ficha que já existe; 
 
@@ -29,8 +33,6 @@ $banco = new PDO($dsn, $user, $password);
 
 //variavel sempre tem $ 
 //variavel select, o que eu quero que liste a tabela de informação;  
-
-
 $select = 'SELECT tb_info_alunos.*, tb_alunos.nome FROM tb_info_alunos INNER JOIN tb_alunos ON tb_alunos.id = tb_info_alunos.id_alunos WHERE tb_info_alunos.id_alunos =' .$id_aluno_alterar ;
 
 //variavel banco -> consulta a variavel select -> e agora vc vai me retorno;

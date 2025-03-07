@@ -1,5 +1,7 @@
+<!-- abrindo tag php  -->
 <?php
 
+//echo para escrever na tela; 
 echo '<h1>Aluno-deletar.php</h1>';
 
 $dsn = 'mysql:dbname=db_chamadinha;host=127.0.0.1';
@@ -11,6 +13,7 @@ $password = '';
 //variavel banco recebe conexao com o banco ( as informacoes estao la; )
 $banco = new PDO($dsn, $user, $password);
 
+// metodo de envio -> GET: manda informações atraves da url E POST: manda informações atraves do corpo 
 $idFormulario = $_GET['id'];
 
 
